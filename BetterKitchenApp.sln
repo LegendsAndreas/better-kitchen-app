@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModels", "DomainModels\DomainModels.csproj", "{AF69DE41-CC3A-47F5-B8DF-1BE5933E5149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesApi", "RecipesApi\RecipesApi.csproj", "{1216175B-B338-490F-924C-1E461E1601FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF69DE41-CC3A-47F5-B8DF-1BE5933E5149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF69DE41-CC3A-47F5-B8DF-1BE5933E5149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF69DE41-CC3A-47F5-B8DF-1BE5933E5149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF69DE41-CC3A-47F5-B8DF-1BE5933E5149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1216175B-B338-490F-924C-1E461E1601FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1216175B-B338-490F-924C-1E461E1601FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1216175B-B338-490F-924C-1E461E1601FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1216175B-B338-490F-924C-1E461E1601FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
