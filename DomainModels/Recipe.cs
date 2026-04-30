@@ -20,3 +20,11 @@ public class Recipe
     // ... existing code ...
     public ICollection<RecipesIngredients> RecipesIngredients { get; set; } = new List<RecipesIngredients>();
 }
+
+public class NewRecipeDto
+{
+    public char MealType { get; set; }
+    public string Name { get; set; }
+    public string ImagePath { get; set; }
+    public Dictionary<int, float> Ingredients { get; set; }
+}
