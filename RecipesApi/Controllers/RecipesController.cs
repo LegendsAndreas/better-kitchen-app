@@ -16,6 +16,45 @@ public class RecipesController : ControllerBase
     }
 
     [HttpGet]
+    [Route("test-recipe")]
+    public IActionResult TestRecipe()
+    {
+        Dictionary<int, float> ingredients = new Dictionary<int, float>()
+        {
+            { 1, 200 },
+        };
+        
+        Recipe newRecipe = new Recipe()
+        {
+            Name = "Test Recipe",
+            MealType = 'D',
+            ImagePath = "images/placeholder.jpg",
+            CreatedAt = DateTime.UtcNow,
+            ModifiedAt = DateTime.UtcNow,
+            RecipesIngredients = ingredients.Select(ingredient => new RecipesIngredients()
+            {
+                IngredientId = ingredient.Key,
+                Grams = ingredient.Value,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow
+            }).ToList()
+        };
+
+        _context.Recipes.Add(newRecipe);
+
+        try
+        {
+            _context.SaveChanges();
+            return Ok("Recipe created successfully");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return BadRequest("Failed to create recipe: " + e.Message);
+        }
+    }
+
+    [HttpGet]
     [Route("test")]
     public IActionResult TestConnection()
     {
@@ -27,40 +66,6 @@ public class RecipesController : ControllerBase
         }
 
         return Ok("Connection successful");
-    }
-
-    /**
-     * Tests the full functionality of the API.
-     * - Creats a new recipe
-     * - Creates a new ingredient
-     */
-    [HttpGet]
-    [Route("test-suite")]
-    public IActionResult TestSuite()
-    {
-        _context.Ingredients.Add(new Ingredient
-        {
-            Name = "Test Ingredient",
-            ImagePath = "https://via.placeholder.com/150",
-            Calories = 100,
-            Protein = 10,
-            Fat = 5,
-            Carbs = 20,
-            CostPr100G = 1.99f,
-            CreatedAt = DateTime.UtcNow,
-            ModifiedAt = DateTime.UtcNow
-        });
-        try
-        {
-            _context.SaveChanges();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return BadRequest("Failed to create ingredient: " + e.Message);
-        }
-
-        return Ok("Test suite completed successfully");
     }
 
     [HttpGet]

@@ -19,15 +19,11 @@ public class AppDBContext : DbContext
         modelBuilder.Entity<Recipe>(entity =>
         {
             entity.HasIndex(r => r.Id).IsUnique();
-
-            entity.HasMany(r => r.Ingredients).WithMany(i => i.Recipes);
         });
         
         modelBuilder.Entity<Ingredient>(entity =>
         {
             entity.HasIndex(i => i.Id).IsUnique();
-            
-            entity.HasMany(i => i.Recipes).WithMany(r => r.Ingredients);
         });
         
         modelBuilder.Entity<RecipesIngredients>(entity =>

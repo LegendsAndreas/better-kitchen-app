@@ -16,6 +16,40 @@ public class IngredientsController : ControllerBase
         _context = context;
     }
     
+    /**
+     * Tests the full functionality of the API.
+     * - Creats a new recipe
+     * - Creates a new ingredient
+     */
+    [HttpGet]
+    [Route("test-suite")]
+    public IActionResult TestSuite()
+    {
+        _context.Ingredients.Add(new Ingredient
+        {
+            Name = "Test Ingredient",
+            ImagePath = "https://via.placeholder.com/150",
+            Calories = 100,
+            Protein = 10,
+            Fat = 5,
+            Carbs = 20,
+            CostPr100G = 1.99f,
+            CreatedAt = DateTime.UtcNow,
+            ModifiedAt = DateTime.UtcNow
+        });
+        try
+        {
+            _context.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return BadRequest("Failed to create ingredient: " + e.Message);
+        }
+
+        return Ok("Test suite completed successfully");
+    }
+    
     [HttpGet("{name}")]
     public async Task<ActionResult<Ingredient>> GetIngredientByName(string name)
     {

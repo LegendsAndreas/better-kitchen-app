@@ -2,7 +2,7 @@
 
 namespace DomainModels;
 
-[Table("RecipesIngredients")]
+[Table("IngredientsRecipes")]
 public class RecipesIngredients
 {
     public int Id { get; set; }

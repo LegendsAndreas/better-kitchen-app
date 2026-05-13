@@ -16,7 +16,6 @@ public class Recipe
     public DateTime CreatedAt { get; set; }
     public DateTime ModifiedAt { get; set; }
     
-    public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
     // ... existing code ...
     public ICollection<RecipesIngredients> RecipesIngredients { get; set; } = new List<RecipesIngredients>();
 }
